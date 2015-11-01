@@ -1,19 +1,14 @@
-log = ''
+class Log():
 
+    def __init__(self, name):
+        self.name = name
+        self.file = open(name, 'w')
+        self.file.write('Log start\n')
+        return None
 
-def start(logFile):
-    global log
-    log = open(logFile, 'w')
-    log.write('Log start\n')
+    def message(self, msg):
+        return self.file.write(msg + '\n')
 
-
-def message(msg):
-    global log
-    log.write(msg)
-    log.write('\n')
-
-
-def end():
-    global log
-    log.write('Log end\n')
-    log.close()
+    def end(self):
+        self.file.write('File end\n')
+        return self.file.close()
