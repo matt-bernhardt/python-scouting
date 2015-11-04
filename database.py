@@ -1,30 +1,25 @@
-# Import libraries
 import mysql.connector
 import connection as connection
 
-cnx = ''
-cursor = ''
 
+class Database():
 
-def connect():
-    global cnx, cursor
-    cnx = mysql.connector.connect(user=connection.u, password=connection.p, host=connection.h, database=connection.d)
-    cursor = cnx.cursor(buffered=True)
+    def __init__(self):
+        self.cnx = ''
+        self.cursor = ''
 
+    def connect(self):
+        self.cnx = mysql.connector.connect(user=connection.u, password=connection.p, host=connection.h, database=connection.d)
+        self.cursor = self.cnx.cursor(buffered=True)
 
-def disconnect():
-    global cnx, cursor
-    cursor.close()
-    cnx.close()
+    def disconnect(self):
+        self.cursor.close()
+        self.cnx.close()
 
+    def query(self, query, params):
+        self.cursor.execute(query, params)
+        self.cnx.commit()
+        return self.cursor
 
-def query(query, params):
-    global cnx, cursor
-    cursor.execute(query, params)
-    cnx.commit()
-    return cursor
-
-
-def warnings():
-    global cnx, cursor
-    return cursor.fetchwarnings()
+    def warnings(self):
+        return self.cursor.fetchwarnings()
