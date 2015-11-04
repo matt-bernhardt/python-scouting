@@ -1,4 +1,15 @@
+# Database connection details
 connection.py
+
+# Compiled code
+*.pyc
+
+# Log output
+*.log
+
+# Output and Log directories
+logs/*
+output/*
 
 # Windows image file caches
 Thumbs.db

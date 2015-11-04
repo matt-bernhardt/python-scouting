@@ -1,0 +1,1 @@
+This directory stores the output created by these scripts.

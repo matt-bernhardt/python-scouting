@@ -2,8 +2,8 @@
 # This will eventually need to be unit tests, but...one thing at a time
 from log import Log
 
-logfile = Log('test-log.log')
-output = Log('test-output.log')
+logfile = Log('../logs/test-log.log')
+output = Log('../output/test-output.log')
 
 print(logfile.name)
 print(output.name)
