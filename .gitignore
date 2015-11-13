@@ -11,6 +11,11 @@ connection.py
 logs/*
 output/*
 
+# Python / Tox
+.tox
+.cache
+.coverage
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
