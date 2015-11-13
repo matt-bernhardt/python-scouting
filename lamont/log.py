@@ -9,4 +9,6 @@ class Log():
         return self.file.write(msg + '\n')
 
     def end(self):
-        return self.file.close()
+        self.file.close()
+        self.file = None
+        return self.file
