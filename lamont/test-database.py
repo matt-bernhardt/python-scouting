@@ -2,15 +2,20 @@ from database import Database
 
 print('Starting...')
 
+print('Creating database...')
 database = Database()
-
 print(str(type(database)))
+print(str(type(database.cnx)))
+print(str(type(database.cursor)))
 
-print('Database object created')
+print('')
 
+print('Connecting...')
 database.connect()
+print(str(type(database.cnx)))
+print(str(type(database.cursor)))
 
-print('Database opened')
+print('')
 
 sql = ('SELECT count(ID) FROM tbl_players p WHERE FirstName = %s')
 params = ('Brian', )
